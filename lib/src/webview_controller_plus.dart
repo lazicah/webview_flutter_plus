@@ -3,6 +3,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
+import 'local_host_server.dart';
 
 class WebViewControllerPlus extends WebViewController {
   WebViewControllerPlus({
@@ -28,7 +29,7 @@ class WebViewControllerPlus extends WebViewController {
     return await super.runJavaScriptReturningResult(getHeightScript);
   }
 
-  /// Load assets on server
+  /// Load assets on server. [LocalHostServer] must be running.
   Future<void> loadFlutterAssetWithServer(
     String uri,
     int port, {

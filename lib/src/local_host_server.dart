@@ -5,15 +5,11 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:mime/mime.dart';
 
-class WebViewPlusServer {
-  late int port;
-
-  WebViewPlusServer({this.port = 0});
-
-  HttpServer? server;
+class LocalHostServer {
+  static HttpServer? server;
 
   ///Closes the server.
-  Future<void> close() async {
+  static Future<void> close() async {
     if (server != null) {
       await server!.close(force: true);
       server = null;
@@ -21,7 +17,7 @@ class WebViewPlusServer {
   }
 
   ///Starts the server
-  Future<int> start() async {
+  static Future<int> start({int port = 0}) async {
     var completer = Completer<int>();
 
     runZonedGuarded(() {
