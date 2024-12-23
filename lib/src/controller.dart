@@ -3,13 +3,8 @@ import 'package:webview_flutter/webview_flutter.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:webview_flutter_plus/src/server.dart';
 
 class WebViewControllerPlus extends WebViewController {
-  final WebViewServer _server = WebViewServer();
-
-  get server => _server;
-
   WebViewControllerPlus({
     super.onPermissionRequest,
   });
@@ -34,13 +29,13 @@ class WebViewControllerPlus extends WebViewController {
   }
 
   /// Load assets on server
-  Future<void> loadFlutterAssetServer(
-    String uri, {
+  Future<void> loadFlutterAssetWithServer(
+    String uri,
+    int port, {
     LoadRequestMethod method = LoadRequestMethod.get,
     Map<String, String> headers = const <String, String>{},
     Uint8List? body,
   }) async {
-    var port = await _server.start();
     return super.loadRequest(Uri.parse('http://localhost:$port/$uri'),
         headers: headers, body: body, method: method);
   }

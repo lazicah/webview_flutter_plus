@@ -2,7 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
-void main() {
+var server = WebViewPlusServer();
+
+void main() async {
+  await server.start();
   runApp(const WebViewPlusExample());
 }
 
@@ -30,7 +33,7 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     _controler = WebViewControllerPlus()
-      ..loadFlutterAssetServer('assets/index.html')
+      ..loadFlutterAssetWithServer('assets/index.html', server.server!.port)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
@@ -76,11 +79,5 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    _controler.server.close();
-    super.dispose();
   }
 }

@@ -5,14 +5,18 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:mime/mime.dart';
 
-class WebViewServer {
-  HttpServer? _server;
+class WebViewPlusServer {
+  late int port;
+
+  WebViewPlusServer({this.port = 0});
+
+  HttpServer? server;
 
   ///Closes the server.
   Future<void> close() async {
-    if (_server != null) {
-      await _server!.close(force: true);
-      _server = null;
+    if (server != null) {
+      await server!.close(force: true);
+      server = null;
     }
   }
 
@@ -21,9 +25,9 @@ class WebViewServer {
     var completer = Completer<int>();
 
     runZonedGuarded(() {
-      HttpServer.bind('localhost', 0, shared: true).then((server) {
-        _server = server;
-        server.listen((HttpRequest httpRequest) async {
+      HttpServer.bind('localhost', port, shared: true).then((httpServer) {
+        server = httpServer;
+        httpServer.listen((HttpRequest httpRequest) async {
           List<int> body = [];
           String path = httpRequest.requestedUri.path;
           path = (path.startsWith('/')) ? path.substring(1) : path;
@@ -51,9 +55,9 @@ class WebViewServer {
           httpRequest.response.add(body);
           httpRequest.response.close();
         });
-        completer.complete(server.port);
+        completer.complete(httpServer.port);
         if (kDebugMode) {
-          print("Server started on port: ${server.port}");
+          print("Server started on port: ${httpServer.port}");
         }
       });
     }, (e, stackTrace) {

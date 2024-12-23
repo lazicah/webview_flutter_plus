@@ -1,3 +1,6 @@
+## [0.4.8] - Dec 22, 2024
+# API changes, please see the example.
+
 ## [0.4.7] - Aug 18, 2024
 # Minor Fixes.
 
