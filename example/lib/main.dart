@@ -2,8 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
+LocalhostServer localhostServer = LocalhostServer();
+
 void main() async {
-  await LocalHostServer.start();
+  await localhostServer.start(port: 0);
   runApp(const WebViewPlusExample());
 }
 
@@ -31,18 +33,17 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     _controler = WebViewControllerPlus()
-      ..loadFlutterAssetWithServer(
-          'assets/index.html', LocalHostServer.server!.port)
+      ..loadFlutterAssetWithServer('assets/index.html', localhostServer.port!)
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (url) {
-            _controler.getWebViewHeight().then((value) {
-              var height = int.parse(value.toString()).toDouble();
+            _controler.getWebViewHeight().then((h) {
+              var height = int.parse(h.toString()).toDouble();
               if (height != _height) {
                 if (kDebugMode) {
-                  print("Height is: $value");
+                  print("Height is: $h");
                 }
                 setState(() {
                   _height = height;
@@ -55,7 +56,7 @@ class _MainPageState extends State<MainPage> {
     super.initState();
   }
 
-  double _height = 1.0;
+  double _height = 0.001;
 
   @override
   Widget build(BuildContext context) {

@@ -12,7 +12,7 @@
     - [Please check `example/lib/main.dart`](#please-check-examplelibmaindart)
 
 # About
-webview_flutter_plus is a powerful extension of [webview_flutter](https://pub.dartlang.org/packages/webview_flutter). This package helps to load Local HTML, CSS and Javascript content from Assets or Strings via a local server. This inherits all features of webview_flutter with minor API changes in `WebViewController`.
+webview_flutter_plus is an extension of [webview_flutter](https://pub.dartlang.org/packages/webview_flutter). This package helps to load Local HTML, CSS and Javascript content from Assets or Strings via a local server. This inherits all features of webview_flutter with minor API changes in `WebViewController`.
 
 Do check [**flutter_tex**](https://pub.dartlang.org/packages/flutter_tex) an implementation of this package.
 
@@ -26,7 +26,7 @@ Do check [**flutter_tex**](https://pub.dartlang.org/packages/flutter_tex) an imp
 
 ```yaml
 dependencies:
-  webview_flutter_plus: ^0.4.9
+  webview_flutter_plus: ^0.4.10
 ```
 
 **2:** You can install packages from the command line:
@@ -51,8 +51,6 @@ Make sure to add this line `android:usesCleartextTraffic="true"` in your `<proje
 Required Permissions are:
 ```xml
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
 ```
 
 ### iOS
@@ -62,7 +60,6 @@ Add following code in your `<project-directory>/ios/Runner/Info.plist`
   <dict>
     <key>NSAllowsArbitraryLoads</key> <true/>
   </dict>
-<key>io.flutter.embedded_views_preview</key> <true/> 
 ```
 
 **4:** Now in your Dart code, you can use:

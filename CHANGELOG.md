@@ -1,3 +1,6 @@
+## [0.4.9] - Dec 26, 2024
+# Minor changes, please see the example.
+
 ## [0.4.9] - Dec 22, 2024
 # API changes, please see the example.
 
