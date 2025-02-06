@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
         NavigationDelegate(
           onPageFinished: (url) {
             _controler.getWebViewHeight().then((h) {
-              var height = int.parse(h.toString()).toDouble();
+              var height = double.parse(h.toString());
               if (height != _height) {
                 if (kDebugMode) {
                   print("Height is: $h");
