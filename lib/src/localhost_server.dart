@@ -99,10 +99,11 @@ class LocalhostServer {
     if (_server == null) {
       return;
     }
+    final serverPort = port;
     await _server!.close(force: true);
 
     if (kDebugMode) {
-      print('Server running on http://localhost:$port closed');
+      print('Server running on http://localhost:$serverPort closed');
     }
 
     _started = false;
