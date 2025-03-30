@@ -1,4 +1,7 @@
-## [0.4.9] - Dec 26, 2024
+## [0.4.11] - Mar 30, 2025
+# Fix server port bug and int parse bug [#58](https://github.com/Shahxad-Akram/webview_flutter_plus/pull/58)
+
+## [0.4.10] - Dec 26, 2024
 # Minor changes, please see the example.
 
 ## [0.4.9] - Dec 22, 2024
