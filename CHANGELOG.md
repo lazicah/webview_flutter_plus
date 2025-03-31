@@ -1,3 +1,6 @@
+## [0.4.12] - Mar 31, 2025
+# [LICENSE](https://github.com/Shahxad-Akram/webview_flutter_plus/blob/master/LICENSE) Updated.
+
 ## [0.4.11] - Mar 30, 2025
 # Fix server port bug and int parse bug [#58](https://github.com/Shahxad-Akram/webview_flutter_plus/pull/58)
 
