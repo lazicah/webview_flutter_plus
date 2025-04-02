@@ -23,28 +23,29 @@ class LocalhostServer {
     this.documentRoot = './',
   });
 
-  int? get port => _server?.port;
+  int? get port => server?.port;
 
   bool _started = false;
-  HttpServer? _server;
+  HttpServer? server;
 
   /// Starts the server on the given [port].
   Future<void> start({port = 0}) async {
     if (_started) {
-      throw Exception('Server already started on http://localhost:$port');
+      throw Exception('Server already started on http://localhost:${this.port}');
     }
-    _started = true;
 
     final completer = Completer();
 
     runZonedGuarded(() {
-      HttpServer.bind('127.0.0.1', port, shared: shared).then((server) {
-        if (kDebugMode) {
-          print('Server running on http://localhost:$port');
-        }
-        _server = server;
+      HttpServer.bind('127.0.0.1', port, shared: shared).then((httpServer) {
+        server = httpServer;
+        _started = true;
 
-        server.listen((HttpRequest request) async {
+        if (kDebugMode) {
+          print('Server running on http://localhost:${this.port}');
+        }
+
+        httpServer.listen((HttpRequest request) async {
           Uint8List body = Uint8List(0);
 
           var path = request.requestedUri.path;
@@ -96,23 +97,23 @@ class LocalhostServer {
 
   /// Closes the server.
   Future<void> close() async {
-    if (_server == null) {
+    if (server == null) {
       return;
     }
     final serverPort = port;
-    await _server!.close(force: true);
+    await server!.close(force: true);
 
     if (kDebugMode) {
       print('Server running on http://localhost:$serverPort closed');
     }
 
     _started = false;
-    _server = null;
+    server = null;
   }
 
   /// Returns whether the server is running or not.
   bool isRunning() {
-    return _server != null;
+    return server != null;
   }
 
   /// Returns a [ContentType] object based on the given [mimeType].

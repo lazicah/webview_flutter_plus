@@ -1,35 +1,38 @@
+## [0.4.13] - Apr 02, 2025
+* Minor fixes.
+
 ## [0.4.12] - Mar 31, 2025
-# [LICENSE](https://github.com/Shahxad-Akram/webview_flutter_plus/blob/master/LICENSE) Updated.
+* [LICENSE](https://github.com/Shahxad-Akram/webview_flutter_plus/blob/master/LICENSE) Updated.
 
 ## [0.4.11] - Mar 30, 2025
-# Fix server port bug and int parse bug [#58](https://github.com/Shahxad-Akram/webview_flutter_plus/pull/58)
+* Fix server port bug and int parse bug [#58](https://github.com/Shahxad-Akram/webview_flutter_plus/pull/58)
 
 ## [0.4.10] - Dec 26, 2024
-# Minor changes, please see the example.
+* Minor changes, please see the example.
 
 ## [0.4.9] - Dec 22, 2024
-# API changes, please see the example.
+* API changes, please see the example.
 
 ## [0.4.8] - Dec 22, 2024
-# API changes, please see the example.
+* API changes, please see the example.
 
 ## [0.4.7] - Aug 18, 2024
-# Minor Fixes.
+* Minor Fixes.
 
 ## [0.4.6] - Aug 05, 2024
-# Dependencies upgraded.
+* Dependencies upgraded.
 
 ## [0.4.5] - Dec 25, 2023
-# `onLoaded` has been removed.
+* `onLoaded` has been removed.
 
 ## [0.4.4] - Dec 25, 2023
-# `onLoaded` has been implemented, fires an event when the entire page (including all its resources like images, scripts, and stylesheets) has finished loading.
+* `onLoaded` has been implemented, fires an event when the entire page (including all its resources like images, scripts, and stylesheets) has finished loading.
 
 ## [0.4.3] - Dec 17, 2023
-# Major changes, see the example.
+* Major changes, see the example.
 
 ## [0.4.2] - Dec 17, 2023
-# Major changes, see the example.
+* Major changes, see the example.
 
 ## [0.4.1] - Dec 16, 2023
 * Minor fix.
