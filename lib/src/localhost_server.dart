@@ -31,7 +31,8 @@ class LocalhostServer {
   /// Starts the server on the given [port].
   Future<void> start({port = 0}) async {
     if (_started) {
-      throw Exception('Server already started on http://localhost:${this.port}');
+      throw Exception(
+          'Server already started on http://localhost:${this.port}');
     }
 
     final completer = Completer();

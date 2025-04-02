@@ -33,9 +33,6 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     _controler = WebViewControllerPlus()
-      ..loadFlutterAssetWithServer('assets/index.html', localhostServer.port!)
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
-      ..setBackgroundColor(const Color(0x00000000))
       ..setNavigationDelegate(
         NavigationDelegate(
           onPageFinished: (url) {
@@ -52,7 +49,10 @@ class _MainPageState extends State<MainPage> {
             });
           },
         ),
-      );
+      )
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setBackgroundColor(const Color(0x00000000))
+      ..loadFlutterAssetWithServer('assets/index.html', localhostServer.port!);
     super.initState();
   }
 
