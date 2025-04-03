@@ -9,8 +9,10 @@ class WebViewControllerPlus extends WebViewController {
     super.onPermissionRequest,
   });
 
+  get webViewHeight => _getWebViewHeight();
+
   /// Return the height of [WebViewWidget]
-  Future<Object> getWebViewHeight() async {
+  Future<Object> _getWebViewHeight() async {
     String getHeightScript = r"""getWebviewHeight();
         function getWebviewHeight() {
             var element = document.body;

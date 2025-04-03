@@ -35,18 +35,17 @@ class _MainPageState extends State<MainPage> {
     _controler = WebViewControllerPlus()
       ..setNavigationDelegate(
         NavigationDelegate(
-          onPageFinished: (url) {
-            _controler.getWebViewHeight().then((h) {
-              var height = double.parse(h.toString());
-              if (height != _height) {
-                if (kDebugMode) {
-                  print("Height is: $h");
-                }
-                setState(() {
-                  _height = height;
-                });
+          onPageFinished: (url) async {
+            final h = await _controler.webViewHeight;
+            var height = double.parse(h.toString());
+            if (height != _height) {
+              if (kDebugMode) {
+                print("Height is: $height");
               }
-            });
+              setState(() {
+                _height = height;
+              });
+            }
           },
         ),
       )
