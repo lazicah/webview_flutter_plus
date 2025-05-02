@@ -171,25 +171,25 @@
     },
     {
       "name": "webview_flutter",
-      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter-4.10.0",
+      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter-4.11.0",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "webview_flutter_android",
-      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_android-4.2.0",
+      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_android-4.4.2",
       "packageUri": "lib/",
-      "languageVersion": "3.5"
+      "languageVersion": "3.6"
     },
     {
       "name": "webview_flutter_platform_interface",
-      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.10.0",
+      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_platform_interface-2.11.0",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.4"
     },
     {
       "name": "webview_flutter_wkwebview",
-      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.16.3",
+      "rootUri": "file:///home/shahzad/.pub-cache/hosted/pub.dev/webview_flutter_wkwebview-3.20.0",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -200,10 +200,10 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2025-04-08T10:37:36.385268Z",
+  "generated": "2025-05-02T20:52:53.322332Z",
   "generator": "pub",
   "generatorVersion": "3.7.2",
   "flutterRoot": "file:///home/shahzad/flutter",
-  "flutterVersion": "3.29.2",
+  "flutterVersion": "3.29.3",
   "pubCache": "file:///home/shahzad/.pub-cache"
 }
