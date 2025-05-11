@@ -19,14 +19,13 @@ Do check [**flutter_tex**](https://pub.dartlang.org/packages/flutter_tex) an imp
 # Features
 - Load Local `HTML`, `CSS` and `Javascript` (and all kind of web) content from Assets via a local server.
 - Get `WebViewWidget` height to render in a `ListView`.
-- `onLoaded` event from Javascript `window.onload`.
 
 # How to use?
 **1:** Add this to your package's pubspec.yaml file:
 
 ```yaml
 dependencies:
-  webview_flutter_plus: ^0.4.16
+  webview_flutter_plus: ^0.4.17
 ```
 
 **2:** You can install packages from the command line:

@@ -9,28 +9,36 @@ class WebViewControllerPlus extends WebViewController {
     super.onPermissionRequest,
   });
 
-  get webViewHeight => _getWebViewHeight();
-
   /// Return the height of [WebViewWidget]
-  Future<Object> _getWebViewHeight() async {
-    String getHeightScript = r"""getWebviewHeight();
-        function getWebviewHeight() {
-            var element = document.body;
-            var height = element.offsetHeight,
-                style = window.getComputedStyle(element)
-            return ['top', 'bottom']
-                .map(function (side) {
-                    return parseInt(style["margin-" + side]);
-                })
-                .reduce(function (total, side) {
-                    return total + side;
-                }, height)
-              }""";
+  Future<double> get webViewHeight => _getWebViewHeight();
 
-    return await super.runJavaScriptReturningResult(getHeightScript);
+  Future<double> _getWebViewHeight() async {
+    String getHeightScript = r"""(function () {
+                var element = document.body;
+                var height = element.offsetHeight,
+                    style = window.getComputedStyle(element)
+                return ['top', 'bottom']
+                    .map(function (side) {
+                        return parseInt(style["margin-" + side]);
+                    }).reduce(function (total, side) {
+                        return total + side;
+                    }, height)
+            })();""";
+
+    var height = await super.runJavaScriptReturningResult(getHeightScript);
+    return double.parse(height.toString());
   }
 
-  /// Load assets on server. [LocalHostServer] must be running.
+  /// Load assets on the local server. [LocalHostServer] must be running.
+  ///
+  /// [method] must be one of the supported HTTP methods in [LoadRequestMethod].
+  ///
+  /// If [headers] is not empty, its key-value pairs will be added as the
+  /// headers for the request.
+  ///
+  /// If [body] is not null, it will be added as the body for the request.
+  ///
+  /// Throws an ArgumentError if [uri] has an empty scheme.
   Future<void> loadFlutterAssetWithServer(
     String uri,
     int port, {
