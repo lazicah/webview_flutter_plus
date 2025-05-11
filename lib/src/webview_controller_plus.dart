@@ -25,8 +25,8 @@ class WebViewControllerPlus extends WebViewController {
                     }, height)
             })();""";
 
-    var height = await super.runJavaScriptReturningResult(getHeightScript);
-    return double.parse(height.toString());
+    return double.parse(
+        (await super.runJavaScriptReturningResult(getHeightScript)).toString());
   }
 
   /// Load assets on the local server. [LocalHostServer] must be running.

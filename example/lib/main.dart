@@ -37,6 +37,7 @@ class _MainPageState extends State<MainPage> {
         NavigationDelegate(
           onPageFinished: (url) async {
             double height = await _controler.webViewHeight;
+            
             if (height != _height) {
               if (kDebugMode) {
                 print("Height is: $height");
