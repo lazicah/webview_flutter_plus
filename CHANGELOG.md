@@ -1,4 +1,7 @@
 ## [0.4.18] - May 11, 2025
+* Dependencies upgraded.
+
+## [0.4.18] - May 11, 2025
 * Minor Fix.
 
 ## [0.4.17] - May 10, 2025

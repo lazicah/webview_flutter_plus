@@ -29,7 +29,7 @@ class LocalhostServer {
   HttpServer? server;
 
   /// Starts the server on the given [port].
-  Future<void> start({port = 0}) async {
+  Future<void> start({int port = 0}) async {
     if (_started) {
       throw Exception(
           'Server already started on http://localhost:${this.port}');
