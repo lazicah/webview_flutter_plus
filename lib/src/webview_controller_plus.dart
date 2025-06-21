@@ -9,6 +9,11 @@ class WebViewControllerPlus extends WebViewController {
     super.onPermissionRequest,
   });
 
+  WebViewControllerPlus.fromPlatformCreationParams(
+    super.params, {
+    super.onPermissionRequest,
+  }) : super.fromPlatformCreationParams();
+
   /// Return the height of [WebViewWidget]
   Future<double> get webViewHeight => _getWebViewHeight();
 
